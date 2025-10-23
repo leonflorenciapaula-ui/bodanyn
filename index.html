@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Invitación de Boda — Nelvia & Nestor</title>
+
+  <!-- Bootstrap CSS (v5) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hurricane&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <style>
+    /* --- Estilos base --- */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Tinos", serif;
+      background-color: #CDD9C1;
+    }
+
+    /* --- Ajuste general de imágenes --- */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* --- Hero section (encabezado principal) --- */
+    .hero {
+      min-height: 60vh;
+      background-size: cover;
+      background-position: center;
+      color: white;
+      position: relative;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 2rem;
+      color: black;
+    }
+
+    /* Imagen principal (logo y portada tipo “pies”) */
+    .hero img,
+    body > img {
+      width: 100%;
+      max-height: 80vh;
+      object-fit: cover;
+      border-radius: 0;
+    }
+
+    /* Secciones */
+    .section {
+      padding: 4rem 1rem;
+    }
+
+    /* Detalles */
+    #detalles .col-md-6 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 576px) {
+      #detalles .row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      #detalles .col-md-6 {
+        width: 100%;
+      }
+      .section {
+        padding: 2rem 1rem;
+      }
+    }
+
+     /* Galería fuera del panel con efecto suave */
+ #galeria img {
+    max-height: 600px;
+    object-fit: cover;
+  }
+
+  /* Transición suave */
+  .carousel-fade .carousel-item {
+    opacity: 0;
+    transition: opacity 3s ease-in-out;
+  }
+
+  .carousel-fade .carousel-item.active {
+    opacity: 1;
+  }
+
+  /* Controles más suaves */
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    filter: invert(1);
+  }  #cuenta-regresiva {
+    background: linear-gradient(180deg, #fff 0%, #f8f9fa 100%);
+  }
+
+  #contador span {
+    display: block;
+    font-size: 3rem;
+    color: #333;
+  }
+
+  #contador div {
+    text-align: center;
+  }
+
+  @media (max-width: 576px) {
+    #contador {
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 1.5rem;
+    }
+
+    #contador span {
+      font-size: 2rem;
+    }
+  }
+  </style>
+
+  <!-- Script de cuenta regresiva -->
+<script>
+  // Fecha del evento: 27 diciembre 2025 a las 19:00 horas
+  const fechaEvento = new Date("December 27, 2025 19:00:00").getTime();
+
+  const contador = setInterval(() => {
+    const ahora = new Date().getTime();
+    const diferencia = fechaEvento - ahora;
+
+    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+    const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+    document.getElementById("dias").textContent = dias.toString().padStart(2, '0');
+    document.getElementById("horas").textContent = horas.toString().padStart(2, '0');
+    document.getElementById("minutos").textContent = minutos.toString().padStart(2, '0');
+    document.getElementById("segundos").textContent = segundos.toString().padStart(2, '0');
+
+    if (diferencia < 0) {
+      clearInterval(contador);
+      document.getElementById("contador").innerHTML = "<h3 class='text-success'>¡Llegó el gran día! 💖</h3>";
+    }
+  }, 1000);
+</script>
+
+</head>
+
+<body>
+  <!-- Logo -->
+  <section>
+    <div class="hero-content text-center">
+      <img src="img/logo.png" alt="Modo">
+    </div>
+  </section>
+
+    <!-- Imagen principal (los pies, portada) -->
+  <section class="text-center my-4">
+    <img src="img/pies.jpg" alt="Modo" class="img-fluid rounded shadow">
+  </section>
+
+  <!-- Hero principal -->
+  <section class="hero d-flex align-items-center justify-content-center">
+    <div class="hero-content text-center">
+      <h1>Nelvia &amp; Nestor</h1>
+      <p>Te invitamos a compartir este momento con nosotros</p>
+      <p><small>Diciembre 27 - 2025</small></p>
+      <a href="#detalles" class="btn btn-light btn-lg">Ver detalles</a>
+    </div>
+  </section>
+
+
+
+  <!-- Sección Detalles -->
+  <section id="detalles">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="img/anillos.png" alt="Modo" width="60">
+          <h2>Boda Civil</h2>
+          <p>Diciembre 26, 11:00am, Registro Civil</p>
+        </div>
+        <div class="col-md-6">
+          <img src="img/ceremonia.png" alt="Modo" width="60">
+          <h2>Ceremonia</h2>
+          <p>Diciembre 27, 19:00hs, Salón de fiestas</p>
+        </div>
+        <div class="col-md-6">
+          <img src="img/recepcion.png" alt="Modo" width="60">
+          <h2>Recepción</h2>
+          <p>Diciembre 27, 16:00hs, Salón de fiestas</p>
+        </div>
+        <div class="col-md-6">
+          <img src="img/fiesta.png" alt="Modo" width="60">
+          <h2>Fiesta</h2>
+          <p>Diciembre 27, 16:00hs, Salón de fiestas</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Nuestra Historia -->
+  <section id="nosotros" class="section">
+    <div class="container">
+      <img src="img/historia.png" alt="Modo" width="60">
+      <h2 class="text-center">Nuestra Historia</h2>
+      <p class="lead text-center">Dios supo el momento perfecto para cruzar nuestros caminos,
+cuando el corazón ya estaba listo para reconocer al otro.
+
+No fue casualidad, sino propósito.
+Dios organizó las circunstancias, los silencios y las sonrisas,
+hasta que el encuentro se volvió certeza.
+
+Así nació una amistad sincera,
+que con el tiempo se transformó en amor,
+y en el deseo de servir y caminar juntos,
+tomados de Su mano, por el resto de la vida.</p>
+
+      <!-- Carrusel -->
+      <div id="carouselExampleCaptions" class="carousel slide mx-auto my-4"
+        data-bs-ride="carousel" style="max-width: 420px; border-radius: 16px; overflow: hidden;">
+
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+        </div>
+
+        <div class="carousel-inner text-center">
+          <div class="carousel-item active">
+            <img src="img/historiauno.png" class="d-block w-100" alt="..." style="object-fit: cover; height: 320px;">
+            <div class="carousel-caption d-none d-md-block bg-white bg-opacity-75 rounded p-2 mb-2">
+              <h5 class="mb-1" style="font-family: 'Hurricane', cursive; color: #4A5A3D;">Cómo empezó</h5>
+              <p class="mb-0 text-muted" style="font-family: 'Tinos', serif; font-size: 15px;">Un encuentro que cambió todo.</p>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="img/historiados.png" class="d-block w-100" alt="..." style="object-fit: cover; height: 320px;">
+            <div class="carousel-caption d-none d-md-block bg-white bg-opacity-75 rounded p-2 mb-2">
+              <h5 class="mb-1" style="font-family: 'Hurricane', cursive; color: #4A5A3D;">Momentos</h5>
+              <p class="mb-0 text-muted" style="font-family: 'Tinos', serif; font-size: 15px;">Nuestra presentación en la iglesia que amamos</p>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="img/historiatres.png" class="d-block w-100" alt="..." style="object-fit: cover; height: 320px;">
+            <div class="carousel-caption d-none d-md-block bg-white bg-opacity-75 rounded p-2 mb-2">
+              <h5 class="mb-1" style="font-family: 'Hurricane', cursive; color: #4A5A3D;">Servir juntos</h5>
+              <p class="mb-0 text-muted" style="font-family: 'Tinos', serif; font-size: 15px;">algo que hicimos desde amigos</p>
+            </div>
+          </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Ubicación -->
+<section id="ubicacion" class="section py-5 text-center ">
+  <div class="container">
+    <h2 class="mb-5">Cómo llegar</h2>
+
+    <div class="mb-5">
+      <h3 class="mb-3">Ceremonia Civil</h3>
+      <p class="mb-1"><strong>Diciembre 26, 11:00am</strong></p>
+      <p class="mb-3">Liniers 155, B1834 Lomas de Zamora, Provincia de Buenos Aires</p>
+      <a href="https://www.google.com/maps/place/Liniers+155,+B1834+Lomas+de+Zamora,+Provincia+de+Buenos+Aires/@-34.7760117,-58.3992547,17z/data=!3m1!4b1!4m6!3m5!1s0x95bcd2e6bbb4a5f1:0x5ba87d7def31e8c5!8m2!3d-34.7760117!4d-58.3992547!16s%2Fg%2F11fmdc1369" 
+         target="_blank" 
+         class="btn btn-outline-dark mt-2">
+        Ver ubicación en Google Maps
+      </a>
+    </div>
+
+    <div>
+      <h3 class="mb-3">Ceremonia Religiosa, Recepción y Fiesta</h3>
+      <p class="mb-1"><strong>Diciembre 27, 19:00pm</strong></p>
+      <p class="mb-3">Aconquija 1152, entre 25 de mayo y Córdoba, Ministro Rivadavia, Burzaco</p>
+      <a href="https://www.google.com/maps/place/Quinta+Setiembre+Eventos/@-34.8305323,-58.3530144,17z/data=!3m1!4b1!4m6!3m5!1s0x95a32b3e36291f85:0xddeed98826e5dfd8!8m2!3d-34.8305367!4d-58.3504395!16s%2Fg%2F11cn4n7bwc" 
+         target="_blank" 
+         class="btn btn-outline-dark mt-2">
+        Ver ubicación en Google Maps
+      </a>
+    </div>
+  </div>
+</section>
+
+ 
+<!-- Sección Galería (Carrusel con efecto de opacidad) -->
+<section id="galeria" class="py-5 text-center">
+  <div class="container">
+    <h2 class="fw-bold mb-4">Galería de fotos</h2>
+
+    <div id="galeriaCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+        <div class="carousel-item active">
+          <img src="img/primera.jpg" class="d-block w-100 rounded shadow-lg" alt="Foto 1 de los novios">
+        </div>
+
+        <div class="carousel-item">
+          <img src="img/segunda.jpg" class="d-block w-100 rounded shadow-lg" alt="Foto 2 de los novios">
+        </div>
+
+        <div class="carousel-item">
+          <img src="img/tercera.jpg" class="d-block w-100 rounded shadow-lg" alt="Foto 3 de los novios">
+        </div>
+
+        <div class="carousel-item">
+          <img src="img/cuarta.jpg" class="d-block w-100 rounded shadow-lg" alt="Foto 4 de los novios">
+        </div>
+
+      </div>
+
+      <!-- Controles -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#galeriaCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+
+      <button class="carousel-control-next" type="button" data-bs-target="#galeriaCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Siguiente</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Sección RSVP -->
+<section id="rsvp" class="section" style="background-color:#F8F9F5;">
+  <div class="container text-center">
+    <h2 style="font-family:'Hurricane', cursive; color:#4A5A3D; font-size:2.5rem;">Confirma Asistencia</h2>
+    <p class="lead mb-4" style="font-family:'Tinos', serif; color:#555;">
+      ¡Nos encantaría compartir este día con vos! 💌<br>
+      Por favor, completá el siguiente formulario:
+    </p>
+
+    <div class="shadow rounded mx-auto" style="max-width:600px; overflow:hidden; border-radius:20px;">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdwTNC1KgH_rqE91NM9oICeTB-VD_x_vJ8uKjxD56rZxwG0rA/viewform?embedded=true" 
+              width="100%" 
+              height="900" 
+              frameborder="0" 
+              marginheight="0" 
+              marginwidth="0">
+        Cargando…
+      </iframe>
+    </div>
+  </div>
+</section>
+
+
+
+ <!-- Sección Cuenta Regresiva -->
+<section id="cuenta-regresiva" class="py-5 text-center ">
+  <div class="container">
+    <h2 class="fw-bold mb-4">Faltan...</h2>
+    <h3 class="text-muted mb-5">para la ceremonia religiosa y la fiesta 💒</h3>
+
+    <div id="contador" class="d-flex justify-content-center gap-4 fs-3 fw-semibold">
+      <div><span id="dias">00</span><div class="text-muted fs-6">Días</div></div>
+      <div><span id="horas">00</span><div class="text-muted fs-6">Horas</div></div>
+      <div><span id="minutos">00</span><div class="text-muted fs-6">Minutos</div></div>
+      <div><span id="segundos">00</span><div class="text-muted fs-6">Segundos</div></div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+ 
+
+ <!-- Sección “Los esperamos” -->
+<section id="contacto" class="section" style="position:relative; padding:0;">
+  <div class="container-fluid p-0">
+    <div style="position:relative; text-align:center; color:white;">
+      <!-- Imagen de fondo -->
+      <img src="img/quinta.jpg" alt="Novios" style="width:100%; height:auto; display:block; object-fit:cover; max-height:600px;">
+      
+      <!-- Texto encima de la imagen -->
+      <h2 style="
+        position:absolute;
+        top:50%;
+        left:70%;
+        transform:translate(-50%, -50%);
+        font-family:'Hurricane', cursive;
+        font-size:3rem;
+        background-color: rgba(74, 90, 61, 0.5);
+        padding:1rem 2rem;
+        border-radius:20px;
+      ">
+        Los esperamos
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Footer -->
+  <footer class="py-4 bg-dark text-white text-center">
+    <div class="container">
+      <small>© 2025 Nelvia &amp; Nestor. Todos los derechos reservados.</small>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
